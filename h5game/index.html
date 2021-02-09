@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<script>
+    window.onload = window.onresize = function(){
+        var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+        var _html = document.getElementsByTagName('html')[0];
+        view_width>414?_html.style.fontSize =  16 + 'px':_html.style.fontSize = view_width / 25.875 + 'px';
+    }
+</script>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.box{
+		width: 25.875rem;
+		height: 38.75rem;
+		overflow: hidden;
+		position: relative;
+	}
+	.setting{
+		width: 25.875rem;
+		height: 193.75rem;
+		position: absolute;
+		bottom: 0;left:0;
+		z-index: 0;
+	}
+	.setting div{
+		width: 25.875rem;
+		height: 38.75rem;
+		float: left;
+	}
+	.setting_5{
+		background: rgb(0,255,0);/*green*/
+	}
+	.setting_4{
+		background: rgb(12,56,79);/*gray*/
+	}
+	.setting_3{
+		background: rgb(204,204,255);/*light blue*/
+	}
+	.setting_2{
+		background: rgb(51,51,153);/*deongaree*/
+	}
+	.setting_1{
+		background: rgb(0,0,0);/*black*/
+	}
+	.puppets{
+		width: 8rem;
+		height: 8rem;
+		position: fixed;
+		z-index: 1;
+		background: rgba(12,12,180,.7);
+		bottom: 0;left:50%;
+		margin-left: -4rem;
+		text-align: center;
+		line-height: 8rem;
+		color: #fff;
+	}
+	.show{
+		width: 25.875rem;
+		height: 1.5rem;
+		position:fixed;
+		top:0;left:0;
+		text-align: center;
+		line-height: 1.5rem;
+		z-index: 1;
+		color: #fff;
+	}
+	.dian{
+		width: 6rem;
+		height: 6rem;
+		position: fixed;
+		bottom: 0;right: 0;
+		background: #99CCFF;
+		text-align: center;
+		line-height: 6rem;
+	}
+</style>
+<body>
+	<div class="box">
+		<div class="setting">
+			<div class="setting_1"></div>
+			<div class="setting_2"></div>
+			<div class="setting_3"></div>
+			<div class="setting_4"></div>
+			<div class="setting_5"></div>
+		</div>
+		<div class="show"></div>
+		<div class="puppets">
+			开始
+		</div>
+		<div class="dian">
+			点击
+		</div>
+	</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+	var dianifclick=0;//"dian"块是否处于可点击状态
+	var puppetsifclick=1;//“puppets”块是否处于可点击状态
+	var puppetss=0;//储存puppets与底部的距离
+	var puppetscp=256;//puppets与底部的距离临界点
+	var i=0;//setting移动的距离
+	var j=0;//puppets移动的距离
+	var z=0;//计算点击数
+	$("div.puppets").click(function(){
+		if(puppetsifclick){
+			dianifclick=1;
+			puppetsifclick=0;
+			$(this).html("");
+			setTimeout(function(){
+				dianifclick=0;
+				puppetsifclick=1;
+			},15000);
+		}
+	});
+	$("div.dian").click(function(){
+		if(dianifclick){
+			z+=1;
+			$("div.show").html("你爬升了"+z+"米");
+			puppetss=parseInt($("div.puppets").css("bottom"));
+			if(puppetss>=puppetscp){
+				i-=2;
+				$("div.setting").css("bottom",i+"rem");
+			}
+			else{
+				j+=2;
+				$("div.puppets").css("bottom",j+"rem");
+			}
+		}
+	})
+</script>
+</html>
