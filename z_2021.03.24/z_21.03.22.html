@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		span{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="clk">
+	<input type="button" value="提交" id="btn">
+	<ol id="lit">
+		
+	</ol>
+	<button>清除全部</button>
+	<script src="js/jquery.min.js"></script>
+	<script>
+		$("button")[0].onclick=function(){
+				$("ol#lit").empty();
+			}
+		$("ol#lit").on("click","span",function (){
+			$(this).parent().remove();
+		});
+		$("input#btn").click(function (){
+			var clkv=$("input#clk")[0].value;
+			if(clkv==""){
+				alert("没有输入信息");
+			}
+			else{
+				$("input#clk")[0].value="";
+				$("ol#lit").prepend("<li><span>x</span>"+clkv+"</li>");
+			}
+		})
+	</script>
+</body>
+</html>
