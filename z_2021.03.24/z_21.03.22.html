@@ -25,14 +25,14 @@
 		$("#lit").on("click","span",function (){
 			$(this).parent().remove();
 		});
-		$("input#btn").click(function (){
+		$("#btn").click(function (){
 			var clkv=$("input#clk").val();
 			if(clkv==""){
 				alert("没有输入信息");
 			}
 			else{
-				$("input#clk").val("");
-				$("ol#lit").prepend("<li><span>x</span>"+clkv+"</li>");
+				$("#clk").val("");
+				$("#lit").prepend("<li><span>x</span>"+clkv+"</li>");
 			}
 		})
 	</script>
