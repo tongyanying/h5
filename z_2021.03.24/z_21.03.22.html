@@ -19,19 +19,19 @@
 	<button>清除全部</button>
 	<script src="js/jquery.min.js"></script>
 	<script>
-		$("button")[0].onclick=function(){
-				$("ol#lit").empty();
-			}
-		$("ol#lit").on("click","span",function (){
+		$("button").eq(0).click(function(){
+				$("#lit").empty();
+			});
+		$("#lit").on("click","span",function (){
 			$(this).parent().remove();
 		});
 		$("input#btn").click(function (){
-			var clkv=$("input#clk")[0].value;
+			var clkv=$("input#clk").val();
 			if(clkv==""){
 				alert("没有输入信息");
 			}
 			else{
-				$("input#clk")[0].value="";
+				$("input#clk").val("");
 				$("ol#lit").prepend("<li><span>x</span>"+clkv+"</li>");
 			}
 		})
