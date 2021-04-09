@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>商城</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="font/font_y618uza8q/iconfont.css">
+	</head>
+	<body>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/Vue.js"></script>
+		<script>
+				    window.onload = window.onresize = function(){
+				        var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+				        var _html = document.getElementsByTagName('html')[0];
+				        view_width>750?_html.style.fontSize = 16 + 'px':_html.style.fontSize = view_width / 46.875 + 'px';
+				    }
+		</script>
+		<div class="box">
+			<ul class="loading">
+				<li>L</li>
+				<li>O</li>
+				<li>A</li>
+				<li>D</li>
+				<li>I</li>
+				<li>N</li>
+				<li>G</li>
+			</ul>
+		</div>
+		<script>
+			$(document).ready(function (){
+				setTimeout(function (){
+					$(".box").fadeOut();
+					$("article").fadeIn();
+				},3500);
+			})
+		</script>
+		<article><!--选项卡效果实现页面切换，此方法好处在于不用涉及跨页面信息传递-->			
+			<div class="xxks">
+				<ol class="subject">
+					<li><!--推荐部分-->
+						<header><input type="search" placeholder="好物推荐"/><span class="iconfont">&#xe610;</span></header>
+					</li>
+					<li><!--购物车部分-->
+						<header>购物车</header>
+					</li>
+					<li><!--个人中心部分-->
+						<header>个人中心</header>
+					</li>
+				</ol>
+			</div>
+			<ol class="xxk">
+				<li class="active"><span class="iconfont">&#xe610;</span></li>
+				<li><span class="iconfont">&#xe60d;</span></li>
+				<li><span class="iconfont">&#xe613;</span></li>
+			</ol>
+			<script>//实现选项卡的代码
+					$(".xxk").on("click","li",function (){
+							$(".xxk").find("li").removeClass("active");
+							var j=$(this).index();
+							$(".xxk").find("li").eq(j).addClass("active");
+							switch(j){
+								case 0:{
+									$(".subject").css("left","0");
+									break;
+								}
+								case 1:{
+									$(".subject").css("left","-46.875rem");
+									break;
+								}
+								case 2:{
+									$(".subject").css("left","-93.75rem");
+									break;
+								}
+							}
+					});
+			</script>
+		</article>
+	</body>
+
+</html>

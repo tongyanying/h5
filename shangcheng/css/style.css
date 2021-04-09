@@ -1,0 +1,138 @@
+*{
+	padding: 0;margin: 0;list-style: none;text-decoration: none;
+}
+.box{
+	width: 46.875rem;
+	height: 75rem;
+	background-image: url(../img/2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.loading{
+	width:37.5rem;
+	height: 12.5rem;
+	padding-top: 12.5rem;
+	display: flex;
+	margin: 0 auto;
+	justify-content:space-around;
+}
+.loading li{
+	overflow:hidden;
+	position: relative;
+	font-size: 2.5rem;
+	font-weight: bold;
+	width:5rem;
+	border-radius: 0.125rem;
+	text-align: center;
+	height:  12.5rem;
+	line-height: 12.5rem;
+	background-color: rgba(255,240,245,.9);
+}
+.loading li::before{
+	content: "";
+	width:5rem;
+	height:  12.5rem;
+	position: absolute;
+	top:0rem;left:0;
+	background-color: rgba(177,211,194,.7);
+}
+.loading li:nth-child(1)::before{
+	animation: jiazai 2s;
+}
+.loading li:nth-child(2)::before{
+	animation: jiazai 2s;
+	animation-delay:.25s;
+}
+.loading li:nth-child(3)::before{
+	animation: jiazai 2s;
+	animation-delay:.5s;
+}
+.loading li:nth-child(4)::before{
+	animation: jiazai 2s;
+	animation-delay:.75s;
+}
+.loading li:nth-child(5)::before{
+	animation: jiazai 2s;
+	animation-delay:1s;
+}
+.loading li:nth-child(6)::before{
+	animation: jiazai 2s;
+	animation-delay:1.25s;
+}
+.loading li:nth-child(7)::before{
+	animation: jiazai 2s;
+	animation-delay:1.5s;
+}
+@keyframes jiazai{
+	0%{top:-12.5rem}
+	100%{top:0rem}
+}
+.xxk .iconfont{
+	height: 4.25rem;
+	font-size: 2.125rem;
+	line-height: 4.25rem;
+}
+article{
+	display: none;
+	width: 46.875rem;
+} 
+.xxk{
+	background-color: rgb(177,211,194);
+	width: 46.875rem;
+	display: flex;
+	justify-content:space-around;
+	position: fixed;
+	bottom: 0;left:0;
+	z-index: 3;
+}
+.xxk li{
+	text-align: center;
+	width: 10rem;
+	color: #fff;
+}
+.xxk .active{
+	color: #000;
+}
+.xxks{
+	position: relative;
+	z-index: 1;
+	width: 46.875rem;
+	height: 125rem;
+	overflow: hidden;
+}
+.subject{
+	position: absolute;
+	top:0;left:0;
+	width: 300%;
+	height: 100%;
+	display: flex;
+}
+.subject li{
+	width: 46.875rem;
+	background-color: rgb(238,239,239);
+}
+.subject li header{
+	background-color:rgb(177,211,194);
+	position: relative;
+	width: 46.875rem;
+	text-align: center;
+	height: 6.25rem;
+	line-height: 6.25rem;
+	font-size:1.5rem;
+	color: #fff;
+}
+.subject li header input{
+	background-color: rgb(238,239,239);
+	width: 28.125rem;
+	height: 2.5rem;
+	border: 1px solid rgb(177,211,194);
+	font-size: 1rem;
+	text-indent: 1rem;
+	border-radius: 1.25rem;
+}
+.subject li header span{
+	font-size: 1rem;
+	line-height: 1rem;
+	position: absolute;
+	top:2.75rem;left:35.125rem;
+}
