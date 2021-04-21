@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>页面声效</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style>
+			.aion{
+				width:100px;
+				height:100px;
+				background-image: url(img/img8.png);
+				background-repeat: no-repeat;
+				background-size: cover;
+				position: relative;
+				border-radius: 50%;
+				box-shadow: 0 0 2px 2px #008000;
+				opacity: 1;
+				animation: zhuan 3s linear infinite;
+			}
+			@keyframes zhuan{
+				0%{
+					transform: rotateZ(0deg);
+				}
+				50%{
+					transform: rotateZ(180deg);
+				}
+				100%{
+					transform: rotateZ(360deg);
+				}
+			}
+		</style>
+	</head>
+	<script src="js/jquery.min.js"></script>
+	<body>
+	<div class="aion">
+		<audio src="img/video.mp3" autoplay loop id="tuo">	
+		</audio>
+	</div>
+	<script type="text/javascript">
+		$(".aion").on("click",function(){
+				if($(this).css('animationPlayState')=="running"){
+					$(this).css("opacity",".4");
+					$(this).css("animationPlayState","paused");
+					$("#tuo").get(0).pause();
+				}
+				else{
+					$(this).css("opacity",".9");
+					$(this).css("animationPlayState","running");
+					$("#tuo").get(0).play();
+				}
+		});
+	</script>
+	</body>
+</html>
